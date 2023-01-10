@@ -1,0 +1,176 @@
+{
+"test set count" : 1,
+"learning rate" : 0.001,
+"cycle limit" : 10000, 
+"error limit mag" : 0.0001,
+"error limit ang" : 0.001,
+"test" : "true",
+"sensors" :
+	{
+	"count" : 3,
+	"angles" : ["45", "0", "-45"]
+	},
+"structure" : 
+	{	
+	"comment" : "organization of the ANN",
+	"layers" :
+		{
+		"count" : 4,
+		"0" :
+			{
+			"type" : "inputs",
+			"bias" : "0+0j",
+			"neurons" :
+				{
+				"count" : 3,
+				"0" : 
+					{
+					"inputs" :
+						{
+						"count" : 1,
+						"comment" : "weight, feedback error",
+						"0" : ["1.0+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 3, 
+						"comment" : "neuron index, input index, ...",
+						"dests" : [0, 0, 1, 0, 2, 0]
+						}
+					},
+				"1" :
+					{
+					"inputs" :
+						{
+						"count" : 1,
+						"0" : ["1.0+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 3, 
+						"dests" : [0, 1, 1, 1, 2, 1]
+						}
+					},
+				"2" : 
+					{
+					"inputs" :
+						{
+						"count" : 1,
+						"0" : ["1.0+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 3,
+						"dests" : [0, 2, 1, 2, 2, 2]
+						}
+					}
+				}
+			},
+		"1" : 
+			{
+			"type" : "hidden",
+			"bias" : "0+0j",
+			"neurons" :
+				{
+				"count" : 3,
+				"0" :
+					{
+					"inputs" :
+						{
+						"count" : 3,
+						"comment" : "weight, feedback error",
+						"0" : ["0.5+0j","0+0j"],
+						"1" : ["0.5+0j","0+0j"],
+						"2" : ["0.5+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 1, 
+						"dests" : [0, 0]
+						}
+					},
+				"1":
+					{
+					"inputs" :
+						{
+						"count" : 3,
+						"comment" : "weight, feedback error",
+						"0": ["0.5+0j","0+0j"],
+						"1": ["0.5+0j","0+0j"],
+						"2": ["0.5+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 1, 
+						"dests" : [0, 1]
+						}	
+					},				
+				"2" :
+					{
+					"inputs" :
+						{
+						"count" : 3,
+						"0" : ["0.5+0j","0+0j"],
+						"1" : ["0.5+0j","0+0j"],
+						"2" : ["0.5+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 1, 
+						"dests" : [0, 2]
+						}
+					}
+				}
+			},
+		"2" : 
+			{
+			"type" : "output",
+			"bias" : "0+0j",
+			"neurons" :
+				{
+				"count" : 1,
+				"0" :
+					{
+					"inputs" :
+						{
+						"count" : 3,
+						"0" : ["0.5+0j","0+0j"],
+						"1" : ["0.5+0j","0+0j"],
+						"2" : ["0.5+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 1, 
+						"dests" : [0, 0]
+						}
+					}
+				}
+			},
+		"3" : 
+			{
+			"type" : "error",
+			"bias" : "0+0j",
+			"neurons" :
+				{
+				"count" : 1,
+				"0" :
+					{
+					"inputs" :
+						{
+						"count" : 1,
+						"0" : ["1+0j","0+0j"]
+						},
+					"destinations" :
+						{
+						"count" : 1, 
+						"dests" : [0, 0]
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
